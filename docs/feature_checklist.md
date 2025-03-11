@@ -11,12 +11,15 @@
 - [ ] Edit existing appointment
 - [ ] Delete appointment
 - [ ] View appointments in a calendar or list view
+- [ ] Set up recurring appointments
+- [ ] Sync appointments with device calendar
 
 ## Medication Management (Priority: High)
 - [ ] Add new medication
 - [ ] Edit existing medication
 - [ ] Delete medication
 - [ ] Set medication schedules (time and frequency)
+- [ ] Track medication inventory and refill reminders
 
 ## Reminders and Notifications (Priority: High)
 - [ ] Set reminders for appointments (e.g., 24 hours and 1 hour before)
@@ -43,6 +46,18 @@
 - [ ] Onboarding tutorial for first-time users
 - [ ] Settings page (notification preferences, account management)
 - [ ] Notification management (enable/disable, customize times)
+
+## User Experience (Priority: Medium)
+- [ ] Implement high-contrast UI elements
+- [ ] Ensure text scaling for readability
+- [ ] Implement supportive messaging and affirmations in notifications
+
+## Premium Features (Priority: Low)
+- [ ] Implement premium features
+- [ ] Set up in-app purchase/subscription system
+
+## Analytics (Priority: Low)
+- [ ] Implement analytics to track user engagement metrics
 
 ---
 *Note: As features are implemented, replace "[ ]" with "[x]" to mark them as complete.*
