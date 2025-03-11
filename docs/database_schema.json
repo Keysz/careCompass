@@ -1,0 +1,120 @@
+{
+    "users": {
+      "user_id": {
+        "fields": {
+          "email": "string",
+          "name": "string",
+          "role": "string (caregiver|self-tracker)",
+          "created_at": "timestamp",
+          "last_login": "timestamp"
+        },
+        "collections": {
+          "preferences": {
+            "settings_id": {
+              "fields": {
+                "notification_settings": {
+                  "appointment_reminders": "boolean",
+                  "medication_reminders": "boolean",
+                  "reminder_time_before_appointment": "array of numbers (minutes)",
+                  "default_snooze_options": "array of numbers (minutes)"
+                },
+                "theme": "string (light|dark|system)",
+                "cloud_sync_enabled": "boolean",
+                "calendar_sync_enabled": "boolean"
+              }
+            }
+          },
+          "profiles": {
+            "profile_id": {
+              "fields": {
+                "name": "string",
+                "is_self": "boolean",
+                "photo_url": "string (optional)",
+                "relationship": "string (optional, e.g., mother, father, spouse)",
+                "created_at": "timestamp"
+              },
+              "collections": {
+                "appointments": {
+                  "appointment_id": {
+                    "fields": {
+                      "date": "timestamp",
+                      "time": "string",
+                      "location": "string",
+                      "doctor_name": "string",
+                      "specialty": "string (optional)",
+                      "notes": "string",
+                      "status": "string (upcoming|completed|canceled)",
+                      "recurrence": "string (none|daily|weekly|monthly|custom)",
+                      "recurrence_end_date": "timestamp (optional)",
+                      "reminder_times": "array of numbers (minutes before appointment)",
+                      "calendar_event_id": "string (for device calendar sync)",
+                      "created_at": "timestamp",
+                      "updated_at": "timestamp"
+                    }
+                  }
+                },
+                "medications": {
+                  "medication_id": {
+                    "fields": {
+                      "name": "string",
+                      "dosage": "string",
+                      "instructions": "string",
+                      "start_date": "timestamp",
+                      "end_date": "timestamp (optional)",
+                      "inventory": "number (optional)",
+                      "refill_reminder_threshold": "number (optional)",
+                      "refill_reminder_enabled": "boolean",
+                      "photo_url": "string (optional)",
+                      "created_at": "timestamp",
+                      "updated_at": "timestamp"
+                    },
+                    "collections": {
+                      "schedules": {
+                        "schedule_id": {
+                          "fields": {
+                            "time": "string",
+                            "frequency": "string (daily|specific_days|weekly|monthly)",
+                            "days_of_week": "array of strings (optional, e.g., [Monday, Wednesday, Friday])",
+                            "specific_dates": "array of timestamps (optional)",
+                            "reminder_enabled": "boolean",
+                            "reminder_time_before": "number (minutes)",
+                            "snooze_options": "array of numbers (minutes)",
+                            "created_at": "timestamp",
+                            "updated_at": "timestamp"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "logs": {
+                  "log_id": {
+                    "fields": {
+                      "action": "string (appointment_attended|appointment_missed|medication_taken|medication_skipped)",
+                      "timestamp": "timestamp",
+                      "details": "string",
+                      "related_id": "string (appointment_id or medication_id)",
+                      "reason_if_skipped": "string (optional)",
+                      "created_by": "string (user_id, for caregiver scenarios)",
+                      "created_at": "timestamp"
+                    }
+                  }
+                },
+                "notes": {
+                  "note_id": {
+                    "fields": {
+                      "title": "string",
+                      "content": "string",
+                      "related_to": "string (optional, appointment_id or medication_id)",
+                      "created_at": "timestamp",
+                      "updated_at": "timestamp"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }

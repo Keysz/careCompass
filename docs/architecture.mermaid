@@ -1,0 +1,58 @@
+graph TD
+    A[User] -->|Interacts with| B[CareCompass Mobile App <br> (React Native + TypeScript)]
+
+    subgraph Frontend
+        B --> C[UI Components <br> (Appointment Tracking, Medication Management)]
+        B --> D[Local Storage <br> (Firestore Offline Persistence)]
+        B --> E[Notification Manager <br> (Local Push Notifications)]
+        B --> PM[Profile Manager <br> (Multi-profile Support)]
+        B --> MM[Medication Tracking System <br> (Schedules & Dosages)]
+        B --> HL[History Logger <br> (Activity Tracking)]
+        B --> OB[Onboarding System <br> (First-time User Experience)]
+        B --> PF[Premium Feature Manager <br> (Freemium Model)]
+    end
+
+    subgraph Backend
+        F[Firebase Services] --> G[Firebase Authentication <br> (Email/Password, Biometric)]
+        F --> H[Firestore Cloud <br> (Optional Sync, HIPAA Compliant)]
+        F --> I[Firebase Cloud Messaging <br> (Push Notifications)]
+        F --> FA[Firebase Analytics <br> (Usage Metrics)]
+    end
+
+    B -->|Authenticates via| G
+    D -->|Syncs with <br> (User Consent)| H
+    E -->|Triggers via| I
+    B -->|Tracks metrics via| FA
+
+    subgraph External Integrations
+        J[Device Calendar <br> (Optional Sync)]
+        K[Biometric APIs <br> (Fingerprint/Face ID)]
+    end
+
+    B -->|Syncs to| J
+    G -->|Uses| K
+
+    subgraph Data Flow
+        D -->|Stores Locally| L[Encrypted Data <br> (Appointments, Medications, Logs)]
+        H -->|Stores in Cloud| M[Encrypted Cloud Data]
+        PM -->|Manages| N[Multiple Care Recipient Profiles]
+        MM -->|Generates| O[Medication Reminders]
+        HL -->|Records| P[Appointment & Medication History]
+    end
+
+    subgraph User Experience
+        OB -->|Guides| Q[First-time Setup]
+        PF -->|Controls Access to| R[Premium Features]
+        E -->|Delivers| S[Appointment & Medication Alerts]
+        C -->|Provides| T[Accessible UI with Warm Colors]
+    end
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style B fill:#bbf,stroke:#333,stroke-width:2px
+    style F fill:#dfd,stroke:#333,stroke-width:2px
+    style PM fill:#bbf,stroke:#333,stroke-width:2px
+    style MM fill:#bbf,stroke:#333,stroke-width:2px
+    style HL fill:#bbf,stroke:#333,stroke-width:2px
+    style OB fill:#bbf,stroke:#333,stroke-width:2px
+    style PF fill:#bbf,stroke:#333,stroke-width:2px
+    style FA fill:#dfd,stroke:#333,stroke-width:2px
